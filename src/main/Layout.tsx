@@ -7,7 +7,7 @@ interface ILayout {
 
 const Layout: FC<ILayout> = ({ children }) => {
   return (
-    <div>
+    <div className="flex gap-10">
       <Sidebar />
       <main>
         {children}

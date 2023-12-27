@@ -4,12 +4,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import AllJobs from "../components/AllJobs";
 
 const App = () => {
   return (
     <Layout >
       <Routes>
-        <Route path="/" element={<p className="text-2xl font-bold">hello</p>}>
+        <Route path="/all_jobs" element={<AllJobs />}>
         </Route>
       </Routes>
     </Layout>
