@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react"
 import Sidebar from "./Sidebar"
+import { Outlet } from "react-router-dom"
 
 interface ILayout {
   children: ReactNode
@@ -11,6 +12,7 @@ const Layout: FC<ILayout> = ({ children }) => {
       <Sidebar />
       <main>
         {children}
+        <Outlet />
       </main>
     </div>
   )

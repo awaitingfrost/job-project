@@ -15,8 +15,7 @@ import Diversity1OutlinedIcon from '@mui/icons-material/Diversity1Outlined';
 import { AccountCircleOutlined, ApartmentOutlined, ArticleOutlined, BusinessOutlined, CableOutlined, GroupAddOutlined, MarkUnreadChatAltOutlined, PeopleOutlined, RateReviewOutlined, RecommendOutlined, ScreenSearchDesktopOutlined, TextSnippetOutlined } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
-const useNavigation = () => {
-
+const useSidebarNavigate = () => {
   const links = [
     {
       name: 'Dashboard',
@@ -221,25 +220,8 @@ const useNavigation = () => {
   return links;
 }
 
-interface DropdownInterface {
-  name: string,
-  href: string,
-  icon: React.ReactElement;
-}
-
-interface SidebarLinkInterface {
-  name: string;
-  href: string;
-  headingVal?: boolean,
-  dropdown?: DropdownInterface[],
-  icon: React.ReactElement;
-}
-
-interface DesktopNavbarInterface {
-  navigation: SidebarLinkInterface[]
-}
-
-const DesktopNavbar: React.FC<DesktopNavbarInterface> = ({ navigation }) => {
+const DesktopNavbar: React.FC = () => {
+  const navigation = useSidebarNavigate();
   const [openDropdowns, setOpenDropdowns] = React.useState<{ [key: string]: boolean }>({});
   const [selected, setSelected] = React.useState(false);
 
@@ -335,8 +317,7 @@ const DesktopNavbar: React.FC<DesktopNavbarInterface> = ({ navigation }) => {
 
 
 export default function Sidebar() {
-  const navigation = useNavigation();
   return (
-    <DesktopNavbar navigation={navigation} />
+    <DesktopNavbar />
   );
 }
